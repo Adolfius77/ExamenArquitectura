@@ -3,36 +3,60 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
+
 import java.util.List;
 import observador.IObservable;
 import observador.IObserver;
+
 /**
  *
  * @author USER
  */
-public class Alumno implements IObservable{
+public class Alumno implements IObservable {
+
     private String nombre;
     private String matricula;
     private EstadoAcademico estado;
     private double promedio;
-    
+    private String semestre;
+
     private List<ProgramaEducativo> carrera;
-    private List<Materia>materias;
-    private List<IObserver>observadores;
+    private List<Materia> materias;
+    private List<IObserver> observadores;
 
     public Alumno(List<ProgramaEducativo> carrera, List<Materia> materias, List<IObserver> observadores) {
         this.carrera = carrera;
         this.materias = materias;
         this.observadores = observadores;
     }
-    
-    
-    
-    public void proporcionarIdentidad(String matriculaEncontrada){
-        
-        
+
+    public void proporcionarIdentidad(String matriculaEncontrada) {
+        if (matriculaEncontrada != null && !matriculaEncontrada.trim().isEmpty()) {
+
+            this.matricula = matriculaEncontrada;
+            this.nombre = "Ana García López";
+            this.promedio = 92.5;
+            this.estado = EstadoAcademico.REGULAR;
+
+            if (this.carrera == null) {
+                this.carrera = new java.util.ArrayList<>();
+            }
+            this.carrera.clear();
+            this.carrera.add(new ProgramaEducativo("Ingeniería en Sistemas Computacionales", "2018"));
+
+            if (this.materias == null) {
+                this.materias = new java.util.ArrayList<>();
+            }
+            this.materias.clear();
+            this.materias.add(new Materia("Desarrollo Web"));
+            this.materias.add(new Materia("Base de Datos II"));
+            this.materias.add(new Materia("Inteligencia Artificial"));
+
+            notificarObservador("DATOS_ENCONTRADOS");
+        }
     }
-    public EstadoAcademico proporcionarEstadoAcadamico(){
+
+    public EstadoAcademico proporcionarEstadoAcadamico() {
         return this.estado;
     }
 
@@ -48,15 +72,11 @@ public class Alumno implements IObservable{
 
     @Override
     public void notificarObservador(String evento) {
-        for (IObserver obs: observadores) {
+        for (IObserver obs : observadores) {
             obs.actualizar();
         }
     }
 
-    
-    
-    
-    
     public String getNombre() {
         return nombre;
     }
@@ -89,6 +109,14 @@ public class Alumno implements IObservable{
         this.promedio = promedio;
     }
 
+    public String getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
+    }
+
     public List<ProgramaEducativo> getCarrera() {
         return carrera;
     }
@@ -112,5 +140,5 @@ public class Alumno implements IObservable{
     public void setObservadores(List<IObserver> observadores) {
         this.observadores = observadores;
     }
-    
+
 }

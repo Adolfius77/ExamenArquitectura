@@ -32,6 +32,22 @@ public class ConstanciaEstudios {
     public String toString() {
         return "ConstanciaEstudios{" + "folioEmision=" + folioEmision + ", fechaGeneracion=" + fechaGeneracion + '}';
     }
+
+    public String getFolioEmision() {
+        return folioEmision;
+    }
+
+    public void setFolioEmision(String folioEmision) {
+        this.folioEmision = folioEmision;
+    }
+
+    public Date getFechaGeneracion() {
+        return fechaGeneracion;
+    }
+
+    public void setFechaGeneracion(Date fechaGeneracion) {
+        this.fechaGeneracion = fechaGeneracion;
+    }
     
     
     

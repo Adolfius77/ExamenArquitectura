@@ -20,13 +20,8 @@ public class ControladorConstanciaView {
         this.modeloAlumno = modeloAlumno;
     }
     
-    public void buscarAlumno(){
-        
+    public void buscarAlumno(String matriculaTecleada){
+        modeloAlumno.proporcionarIdentidad(matriculaTecleada);
     }
-    @Override
-    public String toString() {
-        return "ControladorConstanciaView{" + "constanciaView=" + constanciaView + ", modeloAlumno=" + modeloAlumno + '}';
-    }
-    
     
 }

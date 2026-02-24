@@ -21,12 +21,13 @@ public class ControladorConstanciaGeneradaView {
     
     
     public void solicitarGeneracion(Alumno alumno){
+        Modelo.ConstanciaEstudios nuevaConstancia = new Modelo.ConstanciaEstudios("", new java.util.Date());
+        nuevaConstancia.generarFolio();
+        nuevaConstancia.estructurarDocumento();
+        
         
     }
-    @Override
-    public String toString() {
-        return "ControladorConstanciaGeneradaView{" + "constanciaGeneradaView=" + constanciaGeneradaView + '}';
-    }
+   
     
     
 }

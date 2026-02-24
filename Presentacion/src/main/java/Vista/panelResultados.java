@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Modelo.Alumno;
+
 /**
  *
  * @author USER
@@ -17,6 +19,32 @@ public class panelResultados extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void llenarDatos(Alumno alumno) {
+        lblNombre.setText(alumno.getNombre());
+        lblID.setText(alumno.getMatricula());
+        lblPromedio.setText(String.valueOf(alumno.getPromedio()));
+        lblEstado.setText(alumno.getEstado().toString());
+
+        if (alumno.getCarrera() != null && !alumno.getCarrera().isEmpty()) {
+            lblCarrera.setText(alumno.getCarrera().get(0).detallarInformacionCarrera());
+            lblPlan.setText("");
+        }
+
+        lblSemestreActual.setText(alumno.getSemestre());
+        lblPeriodo.setText("");
+
+        if (alumno.getCarrera() != null && !alumno.getCarrera().isEmpty()) {
+            StringBuilder textoMaterias = new StringBuilder("[ ");
+            for(int i = 0; i < alumno.getMaterias().size(); i++){
+                textoMaterias.append(alumno.getMaterias().get(i).listarCargaAcademica());
+                if (i < alumno.getMaterias().size() - 1) textoMaterias.append(" | ");
+                
+            }
+            textoMaterias.append(" ]");
+            lblMaterias.setText(textoMaterias.toString());
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,6 +55,8 @@ public class panelResultados extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel15 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        lblPeriodo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -40,16 +70,20 @@ public class panelResultados extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lblDetallesAcademicos = new javax.swing.JLabel();
         lblCarrera = new javax.swing.JLabel();
         lblPlan = new javax.swing.JLabel();
         lblSemestreActual = new javax.swing.JLabel();
-        lblPeriodo = new javax.swing.JLabel();
         lblMaterias = new javax.swing.JLabel();
 
         jLabel15.setText("jLabel15");
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Periodo:");
+
+        lblPeriodo.setForeground(new java.awt.Color(0, 0, 0));
+        lblPeriodo.setText("jLabel5");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -90,9 +124,6 @@ public class panelResultados extends javax.swing.JPanel {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Semestre Actual:");
 
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Periodo:");
-
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Materias Inscritas:");
 
@@ -107,9 +138,6 @@ public class panelResultados extends javax.swing.JPanel {
 
         lblSemestreActual.setForeground(new java.awt.Color(0, 0, 0));
         lblSemestreActual.setText("jLabel5");
-
-        lblPeriodo.setForeground(new java.awt.Color(0, 0, 0));
-        lblPeriodo.setText("jLabel5");
 
         lblMaterias.setForeground(new java.awt.Color(0, 0, 0));
         lblMaterias.setText("jLabel5");
@@ -158,11 +186,7 @@ public class panelResultados extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblSemestreActual))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblPeriodo)))))
+                                .addComponent(lblSemestreActual)))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,12 +223,8 @@ public class panelResultados extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(lblSemestreActual))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(lblPeriodo))))
-                .addGap(32, 32, 32)
+                            .addComponent(lblSemestreActual))))
+                .addGap(34, 34, 34)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMaterias)

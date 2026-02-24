@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ControladorConstanciaView;
+import Modelo.Alumno;
 import observador.IObserver;
 
 /**
@@ -11,11 +13,19 @@ import observador.IObserver;
  * @author USER
  */
 public class ConstanciaView extends javax.swing.JFrame implements IObserver {
+    private ControladorConstanciaView controlador;
+    private Alumno modeloAlumno;
 
-    /**
-     * Creates new form ConstanciaView
-     */
     public ConstanciaView() {
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+    
+    public ConstanciaView(ControladorConstanciaView controlador, Alumno modeloAlumno) {
+        this.controlador = controlador;
+        this.modeloAlumno = modeloAlumno;
+        
+        this.modeloAlumno.agregarObservador(this);
         initComponents();
     }
 
@@ -31,8 +41,8 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         PanelActualizable = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,9 +58,19 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingrese la matricula del alumno para checar su estatus academico");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
 
-        jButton1.setText("Buscar");
+        btnBuscar.setText("Buscar");
 
         PanelActualizable.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -71,9 +91,9 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(73, Short.MAX_VALUE)
@@ -97,8 +117,8 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(PanelActualizable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -117,6 +137,16 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        if(controlador != null){
+            controlador.buscarAlumno(txtBuscar.getText());
+        }
+    }//GEN-LAST:event_txtBuscarKeyReleased
 
     /**
      * @param args the command line arguments
@@ -155,15 +185,23 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelActualizable;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PanelActualizable.removeAll();
+        panelResultados resultados = new panelResultados();
+        resultados.llenarDatos(modeloAlumno);
+        resultados.setSize(PanelActualizable.getWidth(), PanelActualizable.getHeight());
+        resultados.setLocation(0,0);
+        PanelActualizable.add(resultados);
+        
+        PanelActualizable.revalidate();
+        PanelActualizable.repaint();
     }
 }
