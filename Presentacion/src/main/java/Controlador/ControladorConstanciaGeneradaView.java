@@ -26,6 +26,7 @@ public class ControladorConstanciaGeneradaView {
         nuevaConstancia.estructurarDocumento();
         
         
+        
     }
    
     

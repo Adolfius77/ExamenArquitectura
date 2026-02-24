@@ -33,10 +33,11 @@ public class Alumno implements IObservable {
     public void proporcionarIdentidad(String matriculaEncontrada) {
         if (matriculaEncontrada != null && !matriculaEncontrada.trim().isEmpty()) {
 
-            this.matricula = matriculaEncontrada;
+            this.matricula = "123";
             this.nombre = "Ana García López";
             this.promedio = 92.5;
             this.estado = EstadoAcademico.REGULAR;
+            this.semestre = "7to semestre - Agosto/Diciembre 2023";
 
             if (this.carrera == null) {
                 this.carrera = new java.util.ArrayList<>();

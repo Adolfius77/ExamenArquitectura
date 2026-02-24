@@ -13,6 +13,7 @@ import observador.IObserver;
  * @author USER
  */
 public class ConstanciaView extends javax.swing.JFrame implements IObserver {
+
     private ControladorConstanciaView controlador;
     private Alumno modeloAlumno;
 
@@ -20,11 +21,11 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     public ConstanciaView(ControladorConstanciaView controlador, Alumno modeloAlumno) {
         this.controlador = controlador;
         this.modeloAlumno = modeloAlumno;
-        
+
         this.modeloAlumno.agregarObservador(this);
         initComponents();
     }
@@ -78,11 +79,11 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
         PanelActualizable.setLayout(PanelActualizableLayout);
         PanelActualizableLayout.setHorizontalGroup(
             PanelActualizableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 552, Short.MAX_VALUE)
         );
         PanelActualizableLayout.setVerticalGroup(
             PanelActualizableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 241, Short.MAX_VALUE)
+            .addGap(0, 260, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -96,7 +97,7 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -106,7 +107,7 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
                         .addGap(83, 83, 83))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(PanelActualizable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))))
+                        .addGap(31, 31, 31))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,9 +120,9 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscar)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(PanelActualizable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,7 +144,7 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-        if(controlador != null){
+        if (controlador != null) {
             controlador.buscarAlumno(txtBuscar.getText());
         }
     }//GEN-LAST:event_txtBuscarKeyReleased
@@ -198,9 +199,10 @@ public class ConstanciaView extends javax.swing.JFrame implements IObserver {
         panelResultados resultados = new panelResultados();
         resultados.llenarDatos(modeloAlumno);
         resultados.setSize(PanelActualizable.getWidth(), PanelActualizable.getHeight());
-        resultados.setLocation(0,0);
+
+        resultados.setLocation(0, 0);
         PanelActualizable.add(resultados);
-        
+
         PanelActualizable.revalidate();
         PanelActualizable.repaint();
     }

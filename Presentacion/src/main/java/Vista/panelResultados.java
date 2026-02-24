@@ -57,6 +57,10 @@ public class panelResultados extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lblPeriodo = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblPlan = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblDetallesAcademicos = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,16 +70,13 @@ public class panelResultados extends javax.swing.JPanel {
         lblID = new javax.swing.JLabel();
         lblPromedio = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        lblDetallesAcademicos = new javax.swing.JLabel();
         lblCarrera = new javax.swing.JLabel();
-        lblPlan = new javax.swing.JLabel();
         lblSemestreActual = new javax.swing.JLabel();
         lblMaterias = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel15.setText("jLabel15");
 
@@ -84,6 +85,18 @@ public class panelResultados extends javax.swing.JPanel {
 
         lblPeriodo.setForeground(new java.awt.Color(0, 0, 0));
         lblPeriodo.setText("jLabel5");
+
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Plan:");
+
+        lblPlan.setForeground(new java.awt.Color(0, 0, 0));
+        lblPlan.setText("jLabel5");
+
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Detalles Academicos");
+
+        lblDetallesAcademicos.setForeground(new java.awt.Color(0, 0, 0));
+        lblDetallesAcademicos.setText("jLabel5");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -112,14 +125,8 @@ public class panelResultados extends javax.swing.JPanel {
         lblEstado.setForeground(new java.awt.Color(0, 0, 0));
         lblEstado.setText("jLabel8");
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Detalles Academicos");
-
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Carrera:");
-
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Plan:");
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Semestre Actual:");
@@ -127,20 +134,16 @@ public class panelResultados extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Materias Inscritas:");
 
-        lblDetallesAcademicos.setForeground(new java.awt.Color(0, 0, 0));
-        lblDetallesAcademicos.setText("jLabel5");
-
         lblCarrera.setForeground(new java.awt.Color(0, 0, 0));
         lblCarrera.setText("jLabel5");
-
-        lblPlan.setForeground(new java.awt.Color(0, 0, 0));
-        lblPlan.setText("jLabel5");
 
         lblSemestreActual.setForeground(new java.awt.Color(0, 0, 0));
         lblSemestreActual.setText("jLabel5");
 
         lblMaterias.setForeground(new java.awt.Color(0, 0, 0));
         lblMaterias.setText("jLabel5");
+
+        jButton1.setText("GenerarConstancia");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,23 +173,12 @@ public class panelResultados extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblPromedio)))
                         .addGap(136, 136, 136)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblPlan))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblCarrera))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblDetallesAcademicos))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblSemestreActual)))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(jLabel12)
+                            .addComponent(lblSemestreActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10)
+                            .addComponent(lblCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -196,15 +188,13 @@ public class panelResultados extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblNombre)
-                    .addComponent(jLabel9)
-                    .addComponent(lblDetallesAcademicos))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2)
-                        .addComponent(jLabel10)
-                        .addComponent(lblCarrera))
-                    .addComponent(lblID, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(lblID, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblCarrera))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -216,19 +206,17 @@ public class panelResultados extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(lblEstado)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(lblPlan))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(lblSemestreActual))))
-                .addGap(34, 34, 34)
-                .addComponent(jLabel14)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSemestreActual)))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMaterias)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -245,6 +233,7 @@ public class panelResultados extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
