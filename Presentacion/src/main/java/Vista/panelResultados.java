@@ -12,14 +12,14 @@ import Modelo.Alumno;
  */
 public class panelResultados extends javax.swing.JPanel {
 
-    /**
-     * Creates new form panelResultados
-     */
+    private Alumno alumnoActual;
+    
     public panelResultados() {
         initComponents();
     }
 
     public void llenarDatos(Alumno alumno) {
+        this.alumnoActual = alumno;
         lblNombre.setText(alumno.getNombre());
         lblID.setText(alumno.getMatricula());
         lblPromedio.setText(String.valueOf(alumno.getPromedio()));
@@ -76,7 +76,7 @@ public class panelResultados extends javax.swing.JPanel {
         lblCarrera = new javax.swing.JLabel();
         lblSemestreActual = new javax.swing.JLabel();
         lblMaterias = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnGenerarConstancia = new javax.swing.JButton();
 
         jLabel15.setText("jLabel15");
 
@@ -143,7 +143,15 @@ public class panelResultados extends javax.swing.JPanel {
         lblMaterias.setForeground(new java.awt.Color(0, 0, 0));
         lblMaterias.setText("jLabel5");
 
-        jButton1.setText("GenerarConstancia");
+        btnGenerarConstancia.setBackground(new java.awt.Color(22, 104, 179));
+        btnGenerarConstancia.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnGenerarConstancia.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerarConstancia.setText("GenerarConstancia");
+        btnGenerarConstancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarConstanciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,7 +182,7 @@ public class panelResultados extends javax.swing.JPanel {
                                 .addComponent(lblPromedio)))
                         .addGap(136, 136, 136)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(btnGenerarConstancia, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addComponent(jLabel12)
                             .addComponent(lblSemestreActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel10)
@@ -213,10 +221,10 @@ public class panelResultados extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jButton1))
+                    .addComponent(btnGenerarConstancia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMaterias)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -231,9 +239,23 @@ public class panelResultados extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGenerarConstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarConstanciaActionPerformed
+        Modelo.ConstanciaEstudios nuevaConstancia = new Modelo.ConstanciaEstudios("", new java.util.Date());
+        nuevaConstancia.generarFolio(); 
+        nuevaConstancia.estructurarDocumento();
+        
+        Vista.ConstanciaGeneradaView panelPDF = new Vista.ConstanciaGeneradaView();
+        
+        Vista.ConstanciaView ventanaPrincipal = (Vista.ConstanciaView) javax.swing.SwingUtilities.getWindowAncestor(this);
+        
+        if (ventanaPrincipal != null) {
+            ventanaPrincipal.cambiarPanelActualizable(panelPDF);
+        }
+    }//GEN-LAST:event_btnGenerarConstanciaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnGenerarConstancia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

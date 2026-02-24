@@ -33,27 +33,63 @@ public class Alumno implements IObservable {
     public void proporcionarIdentidad(String matriculaEncontrada) {
         if (matriculaEncontrada != null && !matriculaEncontrada.trim().isEmpty()) {
 
-            this.matricula = "123";
-            this.nombre = "Ana García López";
-            this.promedio = 92.5;
-            this.estado = EstadoAcademico.REGULAR;
-            this.semestre = "7to semestre - Agosto/Diciembre 2023";
+            boolean alumnoEncontrado = false; 
 
-            if (this.carrera == null) {
-                this.carrera = new java.util.ArrayList<>();
+            if (matriculaEncontrada.equals("123")) {
+                this.matricula = matriculaEncontrada;
+                this.nombre = "Ana García López";
+                this.promedio = 92.5;
+                this.estado = EstadoAcademico.REGULAR;
+                this.semestre = "7º Semestre - Agosto/Diciembre 2023";
+                
+                this.carrera.clear();
+                this.carrera.add(new ProgramaEducativo("Ingeniería en Sistemas Computacionales", "2018"));
+                
+                this.materias.clear();
+                this.materias.add(new Materia("Desarrollo Web"));
+                this.materias.add(new Materia("Base de Datos II"));
+                this.materias.add(new Materia("Inteligencia Artificial"));
+                
+                alumnoEncontrado = true;
+            } 
+         
+            else if (matriculaEncontrada.equals("231")) {
+                this.matricula = matriculaEncontrada;
+                this.nombre = "Jorge Martínez";
+                this.promedio = 88.0;
+                this.estado = EstadoAcademico.REGULAR;
+                this.semestre = "5º Semestre - Agosto/Diciembre 2023";
+                
+                this.carrera.clear();
+                this.carrera.add(new ProgramaEducativo("Ingeniería de Software", "2020"));
+                
+                this.materias.clear();
+                this.materias.add(new Materia("Requisitos de Software"));
+                this.materias.add(new Materia("Diseño de Interfaces"));
+                
+                alumnoEncontrado = true;
             }
-            this.carrera.clear();
-            this.carrera.add(new ProgramaEducativo("Ingeniería en Sistemas Computacionales", "2018"));
-
-            if (this.materias == null) {
-                this.materias = new java.util.ArrayList<>();
+           
+            else if (matriculaEncontrada.equals("001")) {
+                this.matricula = matriculaEncontrada;
+                this.nombre = "Carlos Ruiz";
+                this.promedio = 98.2;
+                this.estado = EstadoAcademico.EXCELENTE;
+                this.semestre = "9º Semestre - Agosto/Diciembre 2023";
+                
+                this.carrera.clear();
+                this.carrera.add(new ProgramaEducativo("Ingeniería Mecatrónica", "2018"));
+                
+                this.materias.clear();
+                this.materias.add(new Materia("Robótica Industrial"));
+                this.materias.add(new Materia("Control Automático"));
+                
+                alumnoEncontrado = true;
             }
-            this.materias.clear();
-            this.materias.add(new Materia("Desarrollo Web"));
-            this.materias.add(new Materia("Base de Datos II"));
-            this.materias.add(new Materia("Inteligencia Artificial"));
 
-            notificarObservador("DATOS_ENCONTRADOS");
+            if (alumnoEncontrado) {
+                notificarObservador("DATOS_ENCONTRADOS");
+            }
         }
     }
 
