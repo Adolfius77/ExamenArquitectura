@@ -103,45 +103,59 @@ public class panelResultados extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre:");
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID:");
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Promedio:");
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Estado:");
 
+        lblNombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("jLabel5");
 
+        lblID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblID.setForeground(new java.awt.Color(0, 0, 0));
         lblID.setText("jLabel6");
 
+        lblPromedio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblPromedio.setForeground(new java.awt.Color(0, 0, 0));
         lblPromedio.setText("jLabel7");
 
+        lblEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(0, 0, 0));
         lblEstado.setText("jLabel8");
 
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Carrera:");
 
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Semestre Actual:");
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Materias Inscritas:");
 
+        lblCarrera.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCarrera.setForeground(new java.awt.Color(0, 0, 0));
         lblCarrera.setText("jLabel5");
 
+        lblSemestreActual.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblSemestreActual.setForeground(new java.awt.Color(0, 0, 0));
         lblSemestreActual.setText("jLabel5");
 
+        lblMaterias.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblMaterias.setForeground(new java.awt.Color(0, 0, 0));
         lblMaterias.setText("jLabel5");
 
@@ -175,13 +189,13 @@ public class panelResultados extends javax.swing.JPanel {
                                     .addComponent(lblNombre)))
                             .addComponent(jLabel14)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(33, 33, 33)
-                                .addComponent(lblEstado))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
-                                .addComponent(lblPromedio)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEstado)
+                                    .addComponent(lblPromedio))))
                         .addGap(136, 136, 136)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnGenerarConstancia, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
@@ -226,7 +240,7 @@ public class panelResultados extends javax.swing.JPanel {
                     .addComponent(btnGenerarConstancia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMaterias)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
