@@ -23,7 +23,11 @@ public class ConstanciaGeneradaView extends javax.swing.JPanel {
         lblFolio.setText(constancia.getFolioEmision());
         lblNombreAlumno.setText(alumno.getNombre());
         lblMatricula.setText(alumno.getMatricula());
-        lblCarrera.setText(alumno.getCarrera().toString());
+        lblCarrera.setText(alumno.getCarrera().get(0).detallarInformacionCarrera());
+        
+        txtNombre.setText(alumno.getNombre());
+        txtCarrera.setText(alumno.getCarrera().get(0).detallarInformacionCarrera());
+        txtMatricula.setText(alumno.getMatricula());
     }
 
     /**
@@ -293,7 +297,7 @@ public class ConstanciaGeneradaView extends javax.swing.JPanel {
                             .addComponent(jLabel7)
                             .addComponent(jLabel20)
                             .addComponent(jLabel22))
-                        .addGap(0, 10, Short.MAX_VALUE))
+                        .addGap(0, 29, Short.MAX_VALUE))
                     .addComponent(txtMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -356,9 +360,7 @@ public class ConstanciaGeneradaView extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

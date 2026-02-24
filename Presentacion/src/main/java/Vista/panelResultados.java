@@ -13,7 +13,7 @@ import Modelo.Alumno;
 public class panelResultados extends javax.swing.JPanel {
 
     private Alumno alumnoActual;
-    
+
     public panelResultados() {
         initComponents();
     }
@@ -35,10 +35,12 @@ public class panelResultados extends javax.swing.JPanel {
 
         if (alumno.getCarrera() != null && !alumno.getCarrera().isEmpty()) {
             StringBuilder textoMaterias = new StringBuilder("[ ");
-            for(int i = 0; i < alumno.getMaterias().size(); i++){
+            for (int i = 0; i < alumno.getMaterias().size(); i++) {
                 textoMaterias.append(alumno.getMaterias().get(i).listarCargaAcademica());
-                if (i < alumno.getMaterias().size() - 1) textoMaterias.append(" | ");
-                
+                if (i < alumno.getMaterias().size() - 1) {
+                    textoMaterias.append(" | ");
+                }
+
             }
             textoMaterias.append(" ]");
             lblMaterias.setText(textoMaterias.toString());
@@ -241,13 +243,15 @@ public class panelResultados extends javax.swing.JPanel {
 
     private void btnGenerarConstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarConstanciaActionPerformed
         Modelo.ConstanciaEstudios nuevaConstancia = new Modelo.ConstanciaEstudios("", new java.util.Date());
-        nuevaConstancia.generarFolio(); 
+        nuevaConstancia.generarFolio();
         nuevaConstancia.estructurarDocumento();
-        
+
         Vista.ConstanciaGeneradaView panelPDF = new Vista.ConstanciaGeneradaView();
-        
+
+        panelPDF.mostrarDatosPDF(nuevaConstancia, this.alumnoActual);
+
         Vista.ConstanciaView ventanaPrincipal = (Vista.ConstanciaView) javax.swing.SwingUtilities.getWindowAncestor(this);
-        
+
         if (ventanaPrincipal != null) {
             ventanaPrincipal.cambiarPanelActualizable(panelPDF);
         }
